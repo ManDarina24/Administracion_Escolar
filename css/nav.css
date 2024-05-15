@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap");
+@import "variables.css";
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: IBM Plex Mono;
+    
+}
+
+body{
+    background-color: white;
+}
+
+.header{
+    position: fixed;
+    top: 0; /* Anclarla a la parte superior de la ventana del navegador */
+    left: 0; /* Anclarla al borde izquierdo de la ventana del navegador */
+    width: 100%; /* Asegurar que ocupe todo el ancho de la ventana */
+    font-size: 20px;
+    background-color: var(--emerald-950);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75px;
+    padding: 5px 2%;
+}
+
+.nav-container{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.header .logo{
+    /* cursor: pointer; */
+    margin-right: 25px;
+    
+}
+
+.header .logo img{
+    height: 55px;
+    width: auto;
+    transition: all 0.3s;
+    border-radius: 50%;
+}
+
+.header .nav-links{
+    list-style: none;
+    
+}
+
+.header .nav-links li{
+    display: inline-block;
+    padding: 0 20px;  
+    cursor: pointer;  
+}
+
+.header .nav-links li:hover{
+    transform: scale(1.1);
+}
+
+.header .nav-links a{
+    font-size: 700;
+    color: white;
+    text-decoration: none; 
+}
+
+.header .nav-links li a:hover{
+    color: var(--emerald-400);
+}
+
+.header .btn button{
+    margin-left: 20px;
+    font-weight: 700;
+    /* color: #1b3039; */
+    padding: 9px 25px;
+    background-color: var(--emerald-100);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.header .btn button:hover{
+    background-color: var(--emerald-400);;
+    transform: scale(1.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: flex-start;
+    
+}
+
+.company-name {
+    color: white;
+    margin-right: 250px;
+    font-weight: bold;
+}
+

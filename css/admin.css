@@ -1,0 +1,83 @@
+@import 'variables.css';
+
+.main-container {
+  margin-top: 90px;;
+  display: block;
+  width: 100vw;
+  height: auto;
+  justify-content: center;
+  font-family: IBM Plex Mono;
+  font-size: 20px;
+}
+
+.titulo {
+  height: auto;
+  font-size: 30px;
+  justify-content: center;
+  text-align: center;
+  margin-top: 30px;
+  margin: 15px;
+  
+}
+
+.container-grupo {
+  
+  width: 60%;
+  min-height:85px ;
+  max-height: auto;
+  margin: 20px auto;
+  border: 4px solid var(--emerald-900); 
+  padding: 25px; 
+  font-weight: bold;
+}
+
+table {
+    width: 100%; /* Ancho completo de la tabla */
+    border-collapse: collapse; /* Colapsar bordes de celda */
+}
+
+/* Estilos para las celdas de encabezado */
+th, td {
+    border: 1px solid #ddd; /* Borde de 1 píxel sólido */
+    padding: 8px; /* Espaciado interno */
+    text-align: left; /* Alineación del texto */
+}
+
+/* Estilo para las filas impares (opcional) */
+tr:nth-child(odd) {
+    background-color:var(--emerald-300); /* Color de fondo */
+}
+
+.extra-info {
+  font-size: 14px;
+}
+
+.titulos-boton {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.btn-ver-info {
+  background-color: #065f46;
+  color: white;
+  cursor: pointer;
+  margin-left: 80%;
+  font-size: 16px;
+}
+
+.btn-ver-info i{
+  margin: 5px;
+}
+
+.grupo-button {
+  padding: 5px ;
+  justify-content: end;
+  text-align: center;
+  margin-left: 70%;
+  background-color: #065f46;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}

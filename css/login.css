@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap");
+@import "variables.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: IBM Plex Mono;
+}
+
+body {
+  background-color:white;
+}
+
+.login {
+  background-color:var(--emerald-950);
+  display: flex;
+  height: 100vh; /* Altura del 100% del viewport */
+  width: 100vw; /* Ancho del 100% del viewport */
+  margin: 0;
+  
+}
+
+.imagen {
+  width: 70%;
+  height: 100%;
+  background: url("../img/escuela.jpeg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+  z-index: 1; /* Asegura que la imagen tenga un z-index inferior al del mensaje de error */
+}
+
+#formlg {
+  padding: 150px 100px;
+  width: 50%;
+  text-align: center;
+}
+
+#formlg h3 {
+  font-family: IBM Plex Mono;
+  font-weight: SemiBold;
+  font-size: 40px;
+  color:white;
+  margin-bottom: 20px;
+}
+
+
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+  width: 90%; /* Cambiado a 100% para ocupar todo el ancho del formulario */
+  margin: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-family: IBM Plex Mono;
+  font-weight: SemiBold;
+  font-size: 20px;
+  opacity: 1;
+}
+
+
+input[type="submit"] {
+  background-color: var(--emerald-100);
+  color: black;
+  cursor: pointer; 
+}
+
+
+input[type="submit"]:hover {
+  background-color: var(--emerald-400);
+}
+
+
+.error {
+  background-color: var(--emerald-500);
+  position: absolute;
+  top: 0;
+  padding: 10px 0;
+  border-radius: 0 0 5px 5px;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  display: none;
+  z-index: 2; /* Asegura que el mensaje de error tenga un z-index superior a la imagen */
+}
+
+
