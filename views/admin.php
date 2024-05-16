@@ -44,7 +44,7 @@
   </div>
 
   <footer>
-
+    <p>Estudio, disciplina y lealtad por México</p>
   </footer>
 
 </body>

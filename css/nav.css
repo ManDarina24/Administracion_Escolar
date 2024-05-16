@@ -15,9 +15,9 @@ body{
 
 .header{
     position: fixed;
-    top: 0; /* Anclarla a la parte superior de la ventana del navegador */
-    left: 0; /* Anclarla al borde izquierdo de la ventana del navegador */
-    width: 100%; /* Asegurar que ocupe todo el ancho de la ventana */
+    top: 0; 
+    left: 0; 
+    width: 100%; 
     font-size: 20px;
     background-color: var(--emerald-950);
     display: flex;
@@ -74,7 +74,6 @@ body{
 .header .btn button{
     margin-left: 20px;
     font-weight: 700;
-    /* color: #1b3039; */
     padding: 9px 25px;
     background-color: var(--emerald-100);
     border: none;
@@ -90,7 +89,7 @@ body{
 
 .logo-container {
     display: flex;
-    align-items: center; /* Centra verticalmente los elementos */
+    align-items: center;
     justify-content: flex-start;
     
 }
@@ -99,5 +98,18 @@ body{
     color: white;
     margin-right: 250px;
     font-weight: bold;
+}
+
+footer {
+    /* position: fixed; */
+    width: 100%; 
+    font-size: 20px;
+    background-color: var(--emerald-950);
+    align-items: center;
+    justify-content: center;
+    color: white;
+    height: 50px;
+    display: flex;
+    bottom: 0;
 }
 

@@ -64,7 +64,7 @@
                     return $contenido .=  'No hay alumnos en este grupo.';
                 }
 
-                // Generar el contenido de la información del grupo
+
 
 
                 // Agregar la información del profesor asignado al grupo
@@ -93,6 +93,22 @@
             // Devolver el contenido generado
             return $contenido;
         }
+
+        public function crearGrupo($grado, $nombre)
+        {
+
+            $nombre = $this->conexion->real_escape_string($nombre);
+            $grado = $this->conexion->real_escape_string($grado);
+            $sql = "INSERT INTO grupos(nombre, idNivel) VALUES ('$nombre', '$grado')";
+
+
+
+            if ($this->conexion->query($sql) === TRUE) {
+                return "Nuevo grupo agregado correctamente.";
+            } else {
+                return "Error al agregar grupo: " . $this->conexion->error;
+            }
+        }
     }
 
     // Incluir el archivo de conexión
@@ -107,28 +123,52 @@
     switch ($opcion) {
         case 'Grupos':
             // Generar el contenido de la sección de Grupos
-            $contenido = '<h2 class="titulo">GRUPOS</h2> <div class="div-nuevo"><button class="grupo-button" type="button">Agregar grupo</button></div>' . $secretaria->obtenerGruposConGrado() ;
+            $contenido = '<h2 class="titulo">GRUPOS</h2>
+                <button class="grupo-button">Agregar grupo</button> 
+                <div class="agrega-grupo" style="display: none;"> 
+                <p>Grupo</p>
+                <input type="text" id="nombre-grupo" placeholder="Nombre del grupo">
+                <p>Grado</p>
+                <select id="grado-grupo">
+                <option value="1">PRIMERO</option>
+                <option value="2">SEGUNDO</option>
+                <option value="3">TERCERO</option>
+                <option value="3">CUARTO</option>
+                <option value="3">QUINTO</option>
+                <option value="3">SEXTO</option>
+            </select>
+            <button class="btn-agregar-grupo">Agregar</button>
+                </div>' . $secretaria->obtenerGruposConGrado();
             break;
         case 'InfoGrupo':
-            // Obtener el ID del grupo desde la solicitud AJAX
             $grupo_id = $_GET['grupo_id'];
-            // Obtener la información del grupo
             $contenido = $secretaria->obtenerInfoGrupo($grupo_id);
             break;
         case 'Alumnos':
-            // Generar el contenido de la sección de Alumnos
             $contenido = '<h2 class="titulo">Alumnos</h2><p>Aquí va el contenido de la sección de Alumnos.</p>';
             break;
         case 'Profesores':
-            // Generar el contenido de la sección de Profesores
             $contenido = '<h2 class="titulo">Profesores</h2><p>Aquí va el contenido de la sección de Profesores.</p>';
             break;
+        case 'AgregarGrupo':
+            // Obtener los datos del nuevo grupo
+            $nombreGrupo = $_GET['nombre'];
+            $gradoGrupo = $_GET['grado'];
+
+            if (empty($nombreGrupo) || empty($gradoGrupo)) {
+                $contenido = "Por favor completa todos los campos.";
+            } else {
+                $contenido = $secretaria->crearGrupo($gradoGrupo, $nombreGrupo);
+            }
+
+            
+
+            break;
         default:
-            // Si la opción no coincide con ninguna de las anteriores, devolver un mensaje de error
             $contenido = 'Opción no válida';
     }
 
-    // Devolver el contenido generado
+
     echo $contenido;
     ?> 
 

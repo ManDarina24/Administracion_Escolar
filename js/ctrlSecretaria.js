@@ -1,15 +1,49 @@
+$(document).ready(function() {
+    cargarContenido('Grupos');
+
+    $(".nav-links a").click(function(event) {
+        event.preventDefault();
+        var opcion = $(this).text(); 
+        cargarContenido(opcion); 
+    });
+
+    // Agregar controlador de eventos para el botón btn-ver-info
+    $(".main-container").on("click", ".btn-ver-info", function() {
+        console.log("entra");
+        var grupo_id = $(this).closest(".container-grupo").data("id"); // Obtener el ID del grupo
+        mostrarInfoGrupo(grupo_id); // Llamar a la función para mostrar la información del grupo
+    });
+
+     $(".main-container").on("click", ".grupo-button", function() {
+        console.log("entra boton");
+        $(".agrega-grupo").slideToggle(); // Alternar la visibilidad del div agrega-grupo 
+    });
 
 
-// $(document).ready(function() {
-//     cargarContenido('Grupos');
+     $(".main-container").on("click", ".btn-agregar-grupo", function() {
+        console.log("entra aqui");
+        // Obtener los datos del formulario
+        var nombreGrupo = $("#nombre-grupo").val();
+        var gradoGrupo = $("#grado-grupo").val();
 
-//     $(".nav-links a").click(function(event) {
-//         event.preventDefault();
-//         var opcion = $(this).text(); 
-//         cargarContenido(opcion); 
-//     });
-// });
+        // Enviar los datos al servidor para agregar el nuevo grupo
+        $.ajax({
+            url: '../php/secretaria.php',
+            type: 'GET',
+            data: {opcion: 'AgregarGrupo', nombre: nombreGrupo, grado: gradoGrupo},
+            success: function(data) {
+                // Recargar la sección de Grupos para mostrar el nuevo grupo agregado
+                alert(data);
+                cargarContenido('Grupos');
+                
+            },
+            error: function(xhr, status, error) {
+                console.error(status, error);
+            }
+        });
+    });
 
+});
 
 function cargarContenido(opcion) {
     $.ajax({
@@ -26,21 +60,7 @@ function cargarContenido(opcion) {
         }
     });
 }
-$(document).ready(function() {
-    cargarContenido('Grupos');
 
-    $(".nav-links a").click(function(event) {
-        event.preventDefault();
-        var opcion = $(this).text(); 
-        cargarContenido(opcion); 
-    });
-
-    // Agregar controlador de eventos para el botón btn-ver-info
-    $(".main-container").on("click", ".btn-ver-info", function() {
-        var grupo_id = $(this).closest(".container-grupo").data("id"); // Obtener el ID del grupo
-        mostrarInfoGrupo(grupo_id); // Llamar a la función para mostrar la información del grupo
-    });
-});
 
 function mostrarInfoGrupo(grupo_id) {
     $.ajax({
@@ -58,6 +78,9 @@ function mostrarInfoGrupo(grupo_id) {
         }
     });
 }
+
+
+
 
 
 
