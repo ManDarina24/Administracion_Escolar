@@ -18,7 +18,13 @@ $(document).ready(function() {
         console.log("entra boton");
         $(".agrega-grupo").slideToggle(); // Alternar la visibilidad del div agrega-grupo 
     });
-
+    
+    //Este es el de alumnos
+    $(".main-container").on("click", ".registra-button", function() {
+        console.log("entra registrar");
+        $(".registro-container").slideToggle();
+        $(".container-table-alumno").fadeOut(); // Ocultar el contenedor de tabla de alumnos
+    });
 
      $(".main-container").on("click", ".btn-agregar-grupo", function() {
         console.log("entra aqui");
@@ -42,6 +48,7 @@ $(document).ready(function() {
             }
         });
     });
+
 
 });
 

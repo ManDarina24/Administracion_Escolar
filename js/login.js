@@ -18,9 +18,9 @@ jQuery(document).on('submit', '#formlg', function(event){
         window.location.replace('views/admin.php');
         //$('body').load('views/admin.php');
       } else if (respuesta.tipo == 'Profesor'){
-        console.log("Interfaz profesor")
+        window.location.replace('views/profe.php');
       } else if (respuesta.tipo == 'Padre'){
-        console.log("Interfaz padre")
+        window.location.replace('views/alum.php');
       }
 
     } else {

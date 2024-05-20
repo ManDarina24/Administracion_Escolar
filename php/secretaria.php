@@ -117,7 +117,7 @@
     // Instanciar la clase Secretaria y pasarle la conexión
     $secretaria = new Secretaria($mysqli);
 
-    $opcion = $_GET['opcion'];
+    $opcion = $_REQUEST['opcion'];
 
     // Generar y devolver el contenido según la opción
     switch ($opcion) {
@@ -145,7 +145,106 @@
             $contenido = $secretaria->obtenerInfoGrupo($grupo_id);
             break;
         case 'Alumnos':
-            $contenido = '<h2 class="titulo">Alumnos</h2><p>Aquí va el contenido de la sección de Alumnos.</p>';
+            $contenido = '<h2 class="titulo">Alumnos</h2>
+            <div class="container-btn-alumno">
+                <button class="registra-button">Registrar</button> 
+                <p>boton</p>     
+            </div>
+
+            <div class="registro-container" style="display: none;">
+                <form>
+                    <fieldset>
+                        <legend>Datos del alumno</legend>
+                        <div>
+                            <label for="nombre-alumno">Nombre</label>
+                            <input type="text" id="nombre-alumno">
+                         </div>
+                        <div>
+                            <label for="paterno-alumno">Apellido Paterno</label>
+                            <input type="text" id="paterno-alumno">
+                        </div>
+                        <div>
+                            <label for="materno-alumno">Apellido Materno</label>
+                            <input type="text" id="materno-alumno">
+                        </div>
+                        <div>
+                            <label for="nacimiento-alumno">Fecha de nacimiento</label>
+                            <input type="date" id="nacimiento-alumno" placeholder="dd/mm/yyyy">
+                        </div>
+                        <div>
+                            <label for="genero">Género</label>
+                            <select id="genero">
+                                <option value="1">FEMENINO</option>
+                                <option value="2">MASCULINO</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="grado">Grado</label>
+                            <select id="grado">
+                                <option value="1">PRIMERO</option>
+                                <option value="2">SEGUNDO</option>
+                                <option value="3">TERCERO</option>
+                                <option value="3">CUARTO</option>
+                                <option value="3">QUINTO</option>
+                                <option value="3">SEXTO</option>
+                        </select>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Dirección del alumno</legend>
+                        <div>
+                            <label for="calle">Calle</label>
+                            <input type="text" id="calle">
+                        </div>
+                        <div>
+                            <label for="numero">Número</label>
+                            <input type="text" id="numero">
+                        </div>
+                        <div>
+                            <label for="colonia">Colonia</label>
+                            <input type="text" id="colonia">
+                        </div>
+                        <div>
+                            <label for="municipio">Municipio</label>
+                            <input type="text" id="municipio">
+                        </div>
+                        <div>
+                            <label for="codigo-postal">Código Postal</label>
+                            <input type="text" id="codigo-postal">
+                        </div>
+                </fieldset>
+                <fieldset>
+                        <legend>Datos del padre o tutor</legend>
+                        <div>
+                            <label for="nombre-tutor">Nombre</label>
+                            <input type="text" id="nombre-tutor">
+                        </div>
+                        <div>
+                            <label for="paterno-tutor">Apellido Paterno</label>
+                            <input type="text" id="paterno-tutor">
+                        </div>
+                        <div>
+                            <label for="materno-tutor">Apellido Materno</label>
+                            <input type="text" id="materno-tutor">
+                        </div>
+                        <div>
+                            <label for="email-tutor">Correo electrónico</label>
+                            <input type="email" id="email-tutor" placeholder="ejemplo@gmail.com">
+                        </div>
+                        <div>
+                            <label for="telefono-tutor">Teléfono</label>
+                            <input type="tel" id="telefono-tutor" placeholder="123-456-7890">
+                        </div>
+                </fieldset>
+                <input type="submit" value="Enviar">
+            </form>
+
+            </div>
+
+            <div class="container-table-alumno">
+                <p>Espacio para mi tabla</p>
+            </div>';
             break;
         case 'Profesores':
             $contenido = '<h2 class="titulo">Profesores</h2><p>Aquí va el contenido de la sección de Profesores.</p>';
@@ -161,7 +260,7 @@
                 $contenido = $secretaria->crearGrupo($gradoGrupo, $nombreGrupo);
             }
 
-            
+
 
             break;
         default:

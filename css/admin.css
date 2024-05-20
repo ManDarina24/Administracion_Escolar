@@ -82,21 +82,6 @@ tr:nth-child(odd) {
   margin-bottom: 10px;
 }
 
-/* .agrega-grupo {
-  display: flex;
-  width: 60%;
-  min-height:85px ;
-  border: 4px solid var(--emerald-400);
-  margin: 20px auto;
-  padding: 25px; 
-  font-weight: bold;
-}
-
-
-#nombre-grupo{
-  background-color: var(--emerald-400);
-} */
-
 .agrega-grupo {
   justify-content: center;
   text-align: center;
@@ -133,4 +118,34 @@ tr:nth-child(odd) {
 
 .btn-agregar-grupo:hover {
   background-color: var(--emerald-500); /* Color de fondo al pasar el ratón */
+}
+
+
+/* Aqui empiezan los estilos de los alumnos*/
+
+.container-btn-alumno {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+
+}
+
+.registra-button {
+  padding: 10px;
+  background-color: var(--emerald-500);
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 70%;
+  border: none;
+}
+
+.registra-button:hover {
+  background-color: var(--emerald-400);
+}
+
+.registro-container {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
 }
