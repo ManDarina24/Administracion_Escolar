@@ -21,6 +21,7 @@
 }
 
 .container-grupo {
+  align-items: center;
   width: 60%;
   min-height: 85px;
   max-height: auto;
@@ -45,10 +46,11 @@ td {
 
 /* Estilo para las filas impares (opcional) */
 tr:nth-child(odd) {
-  background-color: var(--emerald-300); /* Color de fondo */
+  background-color: var(--emerald-100); /* Color de fondo */
 }
 
 .extra-info {
+  
   font-size: 14px;
 }
 
@@ -64,10 +66,18 @@ tr:nth-child(odd) {
   cursor: pointer;
   margin-left: 80%;
   font-size: 16px;
+  align-items: center;
+  width: auto;
+  height: auto;
 }
 
 .btn-ver-info i {
   margin: 5px;
+  
+}
+.cursos {
+  display: flex;
+  
 }
 
 .grupo-button {
@@ -82,29 +92,8 @@ tr:nth-child(odd) {
   margin-bottom: 10px;
 }
 
-.agrega-grupo {
-  justify-content: center;
-  text-align: center;
-  background-color: white; /* Color de fondo */
-  border: 4px solid var(--emerald-400); /* Borde */
-  padding: 25px; /* Espaciado interno */
-  margin: 20px auto;
-  width: 60%; /* Ancho máximo */
-}
 
-.agrega-grupo p {
-  margin-bottom: 8px; /* Espaciado inferior para los párrafos */
-  font-weight: bold;
-}
 
-#nombre-grupo,
-#grado-grupo {
-  width: 80%; /* Ancho completo */
-  padding: 5px; /* Espaciado interno */
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-bottom: 8px; /* Espaciado inferior */
-}
 
 .btn-agregar-grupo {
   background-color: var(--emerald-400); /* Color de fondo */
@@ -114,6 +103,7 @@ tr:nth-child(odd) {
   justify-content: center;
   text-align: center;
   font-weight: bold;
+  width: 0px;
 }
 
 .btn-agregar-grupo:hover {
@@ -122,7 +112,6 @@ tr:nth-child(odd) {
 
 
 /* Aqui empiezan los estilos de los alumnos*/
-
 .container-btn-alumno {
   display: flex;
   width: 100%;
@@ -131,17 +120,20 @@ tr:nth-child(odd) {
 }
 
 .registra-button {
-  padding: 10px;
-  background-color: var(--emerald-500);
-  font-size: 16px;
+  background-color: var(--emerald-400); /* Color de fondo */
+  padding: 10px 20px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Cursor de puntero */
+  justify-content: center;
+  text-align: center;
   font-weight: bold;
-  cursor: pointer;
-  margin-right: 70%;
-  border: none;
+  font-size: medium;
+  margin: 10px;
+
 }
 
 .registra-button:hover {
-  background-color: var(--emerald-400);
+  background-color: var(--emerald-600);
 }
 
 .registro-container {
@@ -149,3 +141,73 @@ tr:nth-child(odd) {
   justify-content: center;
   text-align: center;
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset {
+    display: flex;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    justify-content: center;
+  text-align: center;
+}
+
+legend {
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.contenedor {
+  margin: 20px;
+}
+
+.div-button {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.contenedor-pagos {
+  display: flex;
+}
+
+.pendientes {
+  width: 60%;
+  margin: 25px;
+  padding: 10px;
+}
+
+
+.pago{
+  display: block;
+  padding: 10px;
+  background-color: var(--emerald-50);
+  margin-bottom: 20px;
+}
+
+.asignar-pago{
+  width: 40%;
+  margin: 25px;
+  padding: 10px;
+}
+
+.contenedor-pago {
+  padding: 25px;
+}
+
+
+
+
