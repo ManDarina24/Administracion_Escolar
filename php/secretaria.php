@@ -18,6 +18,7 @@
             $sql = "SELECT Grupos.id AS id_grupo, Grupos.nombre AS nombre_grupo, Nivel.grado AS grado_nivel 
                 FROM Grupos 
                 INNER JOIN Nivel ON Grupos.idNivel = Nivel.id";
+                
             $result = $this->conexion->query($sql);
 
             if ($result->num_rows > 0) {
@@ -143,6 +144,28 @@
                 $contenido .= "<p>Calle: {$direccion['calle']}</p>";
                 $contenido .= "<p>Numero: {$direccion['numero']}</p>";
                 $contenido .= "<p>Codigo Postal: {$direccion['cp']}</p>";
+
+
+                $sql_calificaciones = "SELECT m.nombre AS materia,
+            MAX(CASE WHEN c.periodo = 1 THEN c.calificacion ELSE NULL END) AS trimestre1,
+            MAX(CASE WHEN c.periodo = 2 THEN c.calificacion ELSE NULL END) AS trimestre2,
+            MAX(CASE WHEN c.periodo = 3 THEN c.calificacion ELSE NULL END) AS trimestre3
+            FROM Calificaciones c JOIN Materias m ON c.idMateria = m.id
+            WHERE c.matriculaAlumno = $id
+            GROUP BY m.id";
+        $result_calificaciones = $this->conexion->query($sql_calificaciones);
+
+        if ($result_calificaciones->num_rows > 0) {
+            $contenido .= "<h2>Calificaciones</h2>";
+            $contenido .= "<table>";
+            $contenido .= "<tr><th>Materia</th><th>Trimestre 1</th><th>Trimestre 2</th><th>Trimestre 3</th></tr>";
+            while ($calificacion = $result_calificaciones->fetch_assoc()) {
+                $contenido .= "<tr><td>{$calificacion['materia']}</td><td>{$calificacion['trimestre1']}</td><td>{$calificacion['trimestre2']}</td><td>{$calificacion['trimestre3']}</td></tr>";
+            }
+            $contenido .= "</table>";
+        } else {
+            $contenido .= "<p>No hay calificaciones registradas.</p>";
+        }
             } else {
 
                 $sql_profesor = "SELECT * FROM profesores WHERE matricula = $id";
@@ -459,7 +482,7 @@
     switch ($opcion) {
         case 'Grupos':
             // Generar el contenido de la sección de Grupos
-            $contenido = '<h2 class="titulo">GRUPOS</h2>' . $secretaria->obtenerGruposConGrado();
+            $contenido = '<h2 class="titulo">¡Bienvenida secretaria!</h2> <h2 class="titulo">GRUPOS</h2>' . $secretaria->obtenerGruposConGrado();
             break;
         case 'InfoGrupo':
             $grupo_id = $_GET['grupo_id'];
