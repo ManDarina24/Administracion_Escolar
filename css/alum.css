@@ -11,3 +11,81 @@
   
 }
 
+.titulo {
+  height: auto;
+  font-size: 30px;
+  justify-content: center;
+  text-align: center;
+  margin-top: 30px;
+  margin: 15px;
+}
+
+
+table {
+  width: 100%; /* Ancho completo de la tabla */
+  border-collapse: collapse; /* Colapsar bordes de celda */
+}
+
+/* Estilos para las celdas de encabezado */
+th,
+td {
+  border: 1px solid #ddd; /* Borde de 1 píxel sólido */
+  padding: 8px; /* Espaciado interno */
+  text-align: left; /* Alineación del texto */
+}
+
+/* Estilo para las filas impares (opcional) */
+tr:nth-child(odd) {
+  background-color: var(--emerald-100); /* Color de fondo */
+}
+
+
+fieldset {
+  
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    justify-content: center;
+  text-align: center;
+}
+
+legend {
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.contenedor-pagos {
+  display: flex;
+}
+
+.pendientes {
+  width: 60%;
+  margin: 25px;
+  padding: 10px;
+}
+
+
+.pago{
+  display: block;
+  padding: 10px;
+  background-color: var(--emerald-50);
+  margin-bottom: 20px;
+}
+
+.asignar-pago{
+  width: 40%;
+  margin: 25px;
+  padding: 10px;
+}
+
+.contenedor-pago {
+  padding: 25px;
+}
